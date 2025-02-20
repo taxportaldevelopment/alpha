@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&family=Parkinsans&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Yellowtail&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* product-name font */
+.product-font{
+    font-family: "Mier book";
+}
+/* bg-color */
+.bg-brand-color{
+    background: #C8EBFF;
+}
+/* font style */
+.font-style{
+  font-family: "Yellowtail", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+.haed-style{
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+.header-search-box{
+   display: flex;
+   align-items: center;
+   border: 1px solid black;
+   border-radius: 10px;
+   padding: 5px;
+}
+.header-search-box input{
+   height: 30px;
+   outline: none;
+   border: none;
+}
+.header-search-icons-section{
+    position: relative;
+}
+.header-search-icons-section .child-header{
+    position: absolute;
+    top: 0;
+}
+.header-search-icons-section .child-header div{
+  height:30px;
+  width: 30px;
+  background: #e00303dd;
+  color:white;
+  border-radius: 75%;
+  display: grid;
+  place-content: center;
+}
+.offer-banner-img{
+   background: url(./assets/images/latest-offer.png);
+}
+.offer-banner-img .input-section{
+    width: 70%;
+    border-radius: 10px;
+}
+.offer-banner-img input{
+    border: none;
+    outline: none;
+    height: 50px;
+    width: 75%;
+}
+/* btn styles */
+.buy-btn{
+   padding: 3px 22px;
+   border: none;
+   background-color: #FB641B;
+}
+.add-to-btn{
+   padding: 3px 22px;
+   border: none;
+   background-color: #FF9F00;
+}
+/* offer-price */
+.offer-price{
+   background: url(assets/other/offer-banner.png);
+   background-size: cover;
+}
+/* product-for-you */
+.product-for-you{
+   width: 100%;
+   display: grid;
+   grid-template-columns: repeat(auto-fit,240px);
+   gap: 20px;
+   /* justify-content: center; */
+}
+.product-cart{
+  width: 240px;
+  height: 380px;
+
+}
+.box-shadow-box{
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+@media screen and (max-width:750px) {
+  .product-for-you{
+    grid-template-columns: repeat(auto-fit,170px);
+ }
+ .product-cart{
+   width: 170px;
+   height: 380px;
+ 
+ }
+}
