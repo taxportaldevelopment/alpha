@@ -11,9 +11,11 @@ import image3 from "../assets/image-two/image-3.jpg";
 import image4 from "../assets/image-two/image-4.jpg";
 import image5 from "../assets/image-two/image-5.jpg";
 import image6 from "../assets/image-two/image-6.jpg";
+import videos from "../assets/vedio/productVideoOptimized.mp4";
+
 
 
 export const ProductDetailsJson = {
-       itemsOne:[img1,img2,img3,img4,img5,img6],
+       itemsOne:[img1,img2,img3,img4,img5,img6,videos],
        itemsTwo:[image1,image2,image3,image4,image5,image6],
 }

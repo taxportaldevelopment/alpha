@@ -91,7 +91,7 @@
    display: grid;
    grid-template-columns: repeat(auto-fit,240px);
    gap: 20px;
-   /* justify-content: center; */
+   justify-content:space-around;
 }
 .product-cart{
   width: 240px;

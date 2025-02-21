@@ -104,7 +104,7 @@ const Home = () => {
          </div>
           <div className="my-5">
     <div className='container py-5'>
-             <div className="rounded-md" style={{backgroundColor:"#FFF6D9"}}>
+             <div className="rounded-md pt-5" style={{backgroundColor:"#FFF6D9"}}>
                   <div className="flex">
                        <div className="w-1/2">
                            <div className='flex justify-center items-center'> 
@@ -194,6 +194,8 @@ const Home = () => {
              
                 </div>
             </div>
+            {/* product-video */}  
+                  
     </div>
   )
 }

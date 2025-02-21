@@ -9,12 +9,24 @@ import {
 } from "responsive-navigation";
 // icons
 import { IoSearch } from "react-icons/io5";
-import { FaRegHeart } from "react-icons/fa6";
+// import { FaRegHeart } from "react-icons/fa6";
 import { IoIosCart } from "react-icons/io";
 import { VscAccount } from "react-icons/vsc";
+import { useState } from "react";
+import {useNavigate} from "react-router-dom";
 const Header = () => {
+    const navigate = useNavigate();
+   const [searchProduct,setSearchProduct] = useState("");
+   const getProduct = function(){
+        if(searchProduct == "bags" || searchProduct == "bag" || searchProduct == "lather bags" || searchProduct == "lather bag") return navigate("/products-result")
+   };
+  const keyTrack = (e)=>{
+    if (e.key === 'Enter') {
+      navigate("/products-result")
+    }
+  }
 return (
-  <div>
+  <div className="md:sticky top-0">
 <Navbar
 style={{
   backgroundColor: "white",
@@ -24,16 +36,15 @@ style={{
 >
 <NavbarBrand>
   <a href="/" style={{ fontSize: "30px", fontWeight: "700" }}>
-    LOGO
-  </a>
+  A 2 Alpha  </a>
 </NavbarBrand>
 <SideContent>
   <SideItems>
 
        <div className="search-input flex items-center border">
-           <input type="text" className="md:w-96 h-10 ps-2 outline-none focus:border-none" placeholder="Try Saree,Kurti or Search by Product Code" />
+           <input type="text" className="md:w-96 h-10 ps-2 outline-none focus:border-none" required name="product" onKeyDown={keyTrack} onChange={(e)=>setSearchProduct(e.target.value)} placeholder="Try Saree,Kurti or Search by Product Code" />
              <div className="">
-               <IoSearch className="text-3xl" />
+               <IoSearch className="text-3xl cursor-pointer" onClick={getProduct} />
              </div>
        </div>
   </SideItems>
@@ -62,36 +73,10 @@ style={{
       <a href="/">Blog Details</a>
     </NavItem>
   </DropDown>
-  {/* <DropDown style={{ width: "150px" }} label="Pages">
-    <NavItem >
-      <a className="py-1" href="/">Login</a>
-    </NavItem>
-    <NavItem >
-      <a className="py-1" href="/">Card</a>
-    </NavItem>
-    <NavItem >
-      <a className="py-1" href="/">Element</a>
-    </NavItem>
-    <NavItem >
-      <a className="py-1" href="/">About</a>
-    </NavItem>
-    <NavItem >
-      <a className="py-1" href="/">Confirmation</a>
-    </NavItem>
-    <NavItem >
-      <a className="py-1" href="/">Shopping Cart</a>
-    </NavItem>
-    <NavItem >
-      <a className="py-1" href="/">Product Checkout</a>
-    </NavItem>
-  </DropDown> */}
-  <NavItem>
-    <a href="/">Contact</a>
-  </NavItem>
   <NavItem>
        <div>
            <div className=" relative">
-              <VscAccount className="text-3xl" />
+              <VscAccount className="text-3xl" onClick={()=>navigate("/login")} />
               <div className="absolute flex justify-center items-center text-white -top-3 left-3 h-6 rounded-full w-6 bg-red-600">
                   <span>10</span>
               </div>
@@ -100,9 +85,9 @@ style={{
   </NavItem>
   <NavItem>
        <div> <div className=" relative">
-              <IoIosCart className="text-3xl" />
+              <IoIosCart className="text-3xl" onClick={()=>navigate("/add-to-cart")} />
               <div className="absolute flex justify-center items-center text-white -top-3 left-3 h-6 rounded-full w-6 bg-red-600">
-                  <span>10</span>
+                  <span>4</span>
               </div>
            </div>
        </div>
