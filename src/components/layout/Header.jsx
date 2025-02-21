@@ -36,7 +36,7 @@ style={{
 >
 <NavbarBrand>
   <a href="/" style={{ fontSize: "30px", fontWeight: "700" }}>
-  A 2 Alpha  </a>
+  Alpha  </a>
 </NavbarBrand>
 <SideContent>
   <SideItems>
