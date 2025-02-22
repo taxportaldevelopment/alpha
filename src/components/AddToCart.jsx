@@ -13,13 +13,13 @@ const AddToCart = () => {
                         <div className="flex flex-col">
                         <div>
                            <div className="border p-2 mt-3">
-                        <div className="flex justify-between">
-                              <div className="image w-20 p-2">
+                        <div className="flex justify-between ">
+                              <div className="image w-16 md:w-20 p-1">
                                   <img src={img1} className="object-contain rounded-md" alt="" />
                               </div>
                               <div className="product-details w-96">
-                                   <div className="flex justify-evenly items-center">
-                                   <p className="py-2 text-xs md:text-xl font-bold w-72">Coffee Lycra Blend Saree With Blouse</p>
+                                   <div className="flex justify-between items-center">
+                                   <p className="py-1 ps-2 text-xs lg:text-xl md:w-72">Coffee Lycra Blend Saree With Blouse</p>
                                    <span className="text-purple-500 font-bold cursor-pointer">Edit</span>
                                    </div>
                                  <div className="p-2">
@@ -39,34 +39,7 @@ const AddToCart = () => {
                         </div>
                            </div>
                         </div>
-                        <div>
-                           <div className="border p-2 mt-3">
-                        <div className="flex justify-between">
-                              <div className="image w-20 p-2">
-                                  <img src={img1} className="object-contain rounded-md" alt="" />
-                              </div>
-                              <div className="product-details w-96">
-                                   <div className="flex justify-evenly items-center">
-                                   <p className="py-2 text-xs md:text-xl font-bold w-72">Coffee Lycra Blend Saree With Blouse</p>
-                                   <span className="text-purple-500 font-bold cursor-pointer">Edit</span>
-                                   </div>
-                                 <div className="p-2">
-                                 <p className="font-bold md:text-2xl">₹292</p>
-                                 <p>Bag Size: Free Size Qty: 1</p>
-                                  <div className="md:mt-2 flex justify-end border-t">
-                                      <div className="flex items-center opacity-80 cursor-pointer">
-                                          <IoCloseSharp className="text-2xl"/>
-                                          <span>Remove</span>
-                                      </div>
-                                  </div>
-                                  <div>
-                                      
-                                  </div>
-                                 </div>
-                              </div>
-                        </div>
-                           </div>
-                        </div>
+
                         </div>
 
           

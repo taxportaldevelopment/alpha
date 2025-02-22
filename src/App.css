@@ -58,6 +58,18 @@
   z-index: 1;
   position: relative;
 }
+/* remove arrow mark */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
 @media screen and (max-width:700px){
     .button-48{
       padding: 1em 1em;
