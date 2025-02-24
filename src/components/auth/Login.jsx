@@ -3,7 +3,7 @@ import { FaUser } from "react-icons/fa";
 import { MdOutlinePassword } from "react-icons/md";
 import { FaEye } from "react-icons/fa";
 import { useState } from "react";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 const Login = () => {
      const navigate = useNavigate();
     const [passwordShow,setPasswordShow] = useState(true);
@@ -49,7 +49,7 @@ const Login = () => {
                                             <button className="px-16 py-2 rounded-md bg-yellow-400 hover:bg-yellow-300">Sign In</button>
                                       </div>
                                       <div className="input-group flex justify-between items-center py-2 text-blue-400 underline">
-                                           <a href="/register">Sing Up</a>
+                                           <Link to={"/register"}>Sing Up</Link>
                                            <a href="#">forgot password</a>
                                       </div>
                                </form>
