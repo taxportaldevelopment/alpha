@@ -27,7 +27,7 @@ const Home = () => {
     
   return (
     <div> 
-                <div className="home-banner bg-brand-color">
+    <div className="home-banner bg-brand-color">
              <div className="container">
                    <div className="flex">
                         <div className="w-full md:w-1/2 flex justify-center">
@@ -164,7 +164,7 @@ const Home = () => {
 
            </div>
            {/* Products For You */}
-            <div className="product-list my-5">
+            <div className="product-list pb-20">
                 <div className="container">
               <h1 className='haed-style text-2xl md:text-5xl py-5'>Products For You</h1>
            <div className="product-for-you">

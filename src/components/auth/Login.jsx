@@ -24,7 +24,7 @@ const Login = () => {
   return (
     <div>
          <div className="login-section py-4">
-               <div className="flex h-96 justify-center items-center border">
+               <div className="flex h-96 justify-center items-center border-b">
                <div className="form-sec w-96 border rounded-md p-2">
                                <form onSubmit={handleSubmit}>
                                      <h1 className="py-3  text-center text-2xl haed-style">Accessorize 2 Alpha</h1>
@@ -49,7 +49,7 @@ const Login = () => {
                                             <button className="px-16 py-2 rounded-md bg-yellow-400 hover:bg-yellow-300">Sign In</button>
                                       </div>
                                       <div className="input-group flex justify-between items-center py-2 text-blue-400 underline">
-                                           <a href="#">Sing Up</a>
+                                           <a href="/register">Sing Up</a>
                                            <a href="#">forgot password</a>
                                       </div>
                                </form>

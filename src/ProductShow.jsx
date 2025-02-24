@@ -13,9 +13,12 @@ import image3 from "./assets/image-two/image-3.jpg";
 import image4 from "./assets/image-two/image-4.jpg";
 import image5 from "./assets/image-two/image-5.jpg";
 import image6 from "./assets/image-two/image-6.jpg";
-import { Fragment, useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 // icons
-
+import { MdOutlineShoppingCart } from "react-icons/md";
+import { AiOutlineThunderbolt } from "react-icons/ai";
+import { IoClose } from "react-icons/io5";
+import { TiLocation } from "react-icons/ti";
 // productList Components
 const ProductsList = ({items,getProductId,index})=>{
        const typeFilter = items.split(".");
@@ -25,11 +28,77 @@ const ProductsList = ({items,getProductId,index})=>{
           </Fragment>
       )
 }
+// product buy now
+const ProductBuy = ({closeBuyFun})=>{
+   return(
+       <div>
+           <div className="buy-now">
+                 <div className="title-close flex justify-between py-2 border-b">
+                     <h1>ADD DELIVERY DETAILS</h1>
+                      <div className='text-2xl'>
+                        <IoClose className='cursor-pointer' onClick={closeBuyFun}/>
+                     </div>
+                 </div>
+                 <div className="contact-details py-2">
+                    <h1 className='font-bold text-1xl'>Contact details</h1>
+                 </div>
+                 <div className="stock">
+                  <h1 className='py-2 text-2xl text-green-500'>in Stock</h1>
+                  <select name="" id="" className='w-32 h-10'>
+                     <option value="qantity">Quantity</option>
+                     <option value="1">1</option>
+                     <option value="2">2</option>
+                     <option value="3">3</option>
+                     <option value="4">4</option>
+                     <option value="5">5</option>
+                  </select>
+             </div>
+                <div className="details-to-filed">
 
+                     <div className="form-group py-2">
+                       <label htmlFor="name" className=' block py-1'>Name</label>
+                       <input type="text" placeholder='Name' className=' block w-full h-10 ps-3 outline-none rounded' />
+                     </div>
+                      <div className="form-group py-2">
+                         <label htmlFor="contact" className=' block py-1'>Contact</label>
+                         <input type="text" placeholder='contact' className=' block w-full h-10 ps-3 outline-none rounded' />
+                      </div>  
+                      <div className="form-group">
+                           <div className="flex">
+                               <TiLocation className='text-2xl' />
+                               <h2 className='ms-2 font-bold'>Address</h2>
+                           </div>
+                      </div>
+                      <div className="form-group py-1">
+                            <input type="text" placeholder='House no./Building name' className=' block w-full h-10 ps-3 outline-none rounded' />
+                      </div>
+                      <div className="form-group py-1">
+                            <input type="text" placeholder='Road name / Area / Colony' className=' block w-full h-10 ps-3 outline-none rounded' />
+                      </div>
+                      <div className="form-group py-1 flex gap-3">
+                            <div>
+                               <input type="text" placeholder='City' className=' h-10 ps-3 inline w-44 outline-none rounded' />
+                            </div>
+                            <div>
+                               <input type="text" placeholder='State' className=' h-10 ps-3 inline w-44 outline-none rounded' />
+                            </div>
+                      </div>
+                      <div className="form-group flex justify-center my-3 bg-fuchsia-700 rounded">
+                           <button className='py-3 hover:text-white '>Save Address</button>
+                      </div>
+                </div>
+           </div>
+       </div>
+   )
+}
 const ProductShow = () => {
+
+    const [productBuy,setProductBuy] = useState(false);
+     const closeBuyFun = ()=>{
+           setProductBuy(!productBuy)
+     }
     var productStatus = 1;
     const [productShow,setProduct] = useState([img1,img2,img3,img4,img5,img6,videos]);
-    const productRef = useRef(null);
     const [currentProduct,setCurrentProduct] = useState(img1)
     const product = [img1,img2,img3,img4,img5,img6];
     const product1 = [image1,image2,image3,image4,image5,image6];
@@ -56,6 +125,14 @@ const ProductShow = () => {
   return (
     <div>
        <div className="product-list-show">
+        {
+          productBuy?
+               <div className="relative p-3 ">
+                     <div className='absolute w-full md:w-96  bg-gray-300 top-0 right-0 p-2'>  
+                         <ProductBuy closeBuyFun={closeBuyFun} />  
+                     </div>
+               </div>:""
+        }
              <div className="container p-4">
                    <div className="flex flex-wrap">
                    <div className='w-full md:w-1/2 p-2 '>
@@ -106,9 +183,10 @@ const ProductShow = () => {
                          </div>
                        </div>
                           <div className="flex flex-wrap border-b-2 border-black-500">
-                          <div className="left-site w-full md:w-1/2">
+                          <div className="left-site w-fullborder">
                            <div className="price-section p-2">
-                               <h1 className="text-2xl">$150 <sup className="text-xs">80</sup></h1>
+                               <h1 className="text-2xl"><span className='text-red-500'>-25%</span> $150 <sup className="text-xs">80</sup></h1>
+                               <span className='opacity-55'>was: <strike>$120</strike></span>
                            </div>   
                            <div className="coupon-section py-2">
                                  <div className="coupon flex items-center">
@@ -174,31 +252,12 @@ const ProductShow = () => {
                               </div>
                            </div>
                           </div>
-                          <div className="right-site w-full md:w-1/2">
-                               <div className="free-delivery p-2">
-                                   <p className="flex items-center"><a href="#" className="text-blue-500 px-1">FREE delivery </a> Sunday, February 23 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
-  <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-</svg>
-</p>
- <h5 className="text-xl my-1 text-green-500">In Stock</h5>
-   <div className="quantity">
-        <select name="" id="" className="border w-40 py-1 rounded">
-            <option value="">Quantity</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
-   </div>
-   <div className="order-details py-2">
-        <button className="border px-5 py-1 bg-yellow-400 hover:bg-yellow-300 rounded-lg">Add To Cart</button>
-        <button className="border px-5 py-1 bg-orange-500 hover:bg-orange-400 rounded-lg ms-1">Buy Now</button>
-   </div>
-                               </div>
                           </div>
-
-                          </div>
+                           {/* buy now and add to cart */}
+                            <div className='my-2 flex gap-x-4 ite'>
+                                <button className='py-2 px-8 bg-yellow-400 rounded hover:text-slate-50 flex items-center'>Add Tom <MdOutlineShoppingCart className='text-2xl' /></button>
+                                <button className='py-2 px-8 bg-orange-400 rounded hover:text-slate-50 flex items-center' onClick={closeBuyFun}>Buy Now <AiOutlineThunderbolt /></button>
+                            </div>
                           {/*About this item  */}
                        <div className="product-about py-2">
                            <h1><strong>About this item</strong></h1>
@@ -221,7 +280,9 @@ const ProductShow = () => {
     </div>
   )
 }
-
+ProductBuy.propTypes={
+  closeBuyFun:PropTypes.func
+}
 ProductsList.propTypes={
     items:PropTypes.string,
     getProductId:PropTypes.func,
